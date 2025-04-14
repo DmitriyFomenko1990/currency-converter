@@ -1,15 +1,9 @@
 <script setup lang="ts">
-import { onMounted, computed } from 'vue'
+import { computed } from 'vue'
 import { useCurrencyStore } from '@/entities/currency/model/currencyStore'
 import { Currency } from '@/entities/currency/types'
 
 const store = useCurrencyStore()
-
-onMounted(() => {
-  if (!Object.keys(store.rates).length) {
-    store.fetchRates()
-  }
-})
 
 const currenciesToShow = computed(() =>
     Object.values(Currency).filter((c) => c !== store.baseCurrency)
