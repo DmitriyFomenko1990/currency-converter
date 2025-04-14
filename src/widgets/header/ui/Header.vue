@@ -1,10 +1,14 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
-import { ref } from 'vue'
-const supportedCurrencies = ['RUB', 'USD', 'EUR']
-const baseCurrency = ref('RUB')
-</script>
+import { storeToRefs } from 'pinia'
+import { useCurrencyStore } from '@/entities/currency/model/currencyStore'
+import { Currency } from '@/entities/currency/types'
 
+const store = useCurrencyStore()
+const { baseCurrency } = storeToRefs(store)
+
+const supportedCurrencies = Object.values(Currency)
+</script>
 
 <template>
   <header style="display: flex; justify-content: space-between; align-items: center; padding: 1rem;">
