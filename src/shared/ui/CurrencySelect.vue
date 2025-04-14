@@ -18,9 +18,15 @@ const options = Object.values(Currency).map((c) => ({
 
 <template>
   <n-select
+      class="currency-select"
       :value="modelValue"
       :options="options"
       @update:value="emit('update:modelValue', $event)"
-      style="width: 120px"
   />
 </template>
+
+<style scoped lang="scss">
+.currency-select {
+  width: 120px;
+}
+</style>

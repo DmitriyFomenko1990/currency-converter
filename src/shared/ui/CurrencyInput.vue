@@ -2,7 +2,7 @@
 import { NInputNumber } from 'naive-ui'
 
 defineProps<{
-  modelValue: number
+  modelValue: number | null
   placeholder?: string
 }>()
 
@@ -14,11 +14,17 @@ const emit = defineEmits<{
 
 <template>
   <n-input-number
+      class="currency-input"
       :value="modelValue"
-      @update:value="(val) => emit('update:modelValue', val)"
+      @update:value="(val) => emit('update:modelValue', val ?? 0)"
       @input="emit('input')"
       :min="0"
       :placeholder="placeholder"
-      style="width: 200px"
   />
 </template>
+
+<style scoped lang="scss">
+.currency-input {
+  width: 200px;
+}
+</style>

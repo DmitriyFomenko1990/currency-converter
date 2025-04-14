@@ -16,7 +16,10 @@ const form = reactive([
 ])
 
 const schema = object({
-  amount: number().typeError('Введите число').min(0, 'Значение не может быть отрицательным')
+  amount: number()
+      .typeError('Введите число')
+      .required('Введите значение')
+      .min(0, 'Значение не может быть отрицательным')
 })
 
 const validate = async (index: number) => {
@@ -37,21 +40,39 @@ const updateAmount = async (sourceIndex: 0 | 1) => {
   form[targetIndex].amount = parseFloat((form[sourceIndex].amount * rate).toFixed(2))
 }
 
-watch(() => form[0].currency, () => updateAmount(1))
+watch(() => form[0].currency, () => updateAmount(0))
 watch(() => form[1].currency, () => updateAmount(0))
 </script>
 
 <template>
-  <div style="padding: 2rem;">
-    <h1>Конвертация валют</h1>
+  <div class="convert">
+    <h1 class="convert__title">Конвертация валют</h1>
 
     <div
+        class="convert__row"
         v-for="(row, index) in form"
         :key="index"
-        style="margin-bottom: 1.5rem; display: flex; gap: 1rem; align-items: center"
     >
       <CurrencySelect v-model="row.currency" />
       <CurrencyInput v-model="row.amount" @input="() => updateAmount(index as 0 | 1)" />
     </div>
   </div>
 </template>
+
+<style lang="scss" scoped>
+.convert {
+  padding: 2rem;
+
+  &__title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  &__row {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+}
+</style>
