@@ -1,17 +1,12 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router'
-import Header from "@/widgets/header/ui/Header.vue";
+import Header from '@/widgets/header/ui/Header.vue'
+import { NMessageProvider } from 'naive-ui'
 </script>
 
-
 <template>
-  <div>
+  <n-message-provider>
     <Header />
     <RouterView />
-  </div>
+  </n-message-provider>
 </template>
-
-
-<style scoped>
-
-</style>
