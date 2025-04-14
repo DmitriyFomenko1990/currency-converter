@@ -1,29 +1,41 @@
-# currency-converter
+# 💱 Currency Converter
 
-This template should help get you started developing with Vue 3 in Vite.
+Single Page Application на Vue 3 для конвертации валют с актуальными курсами в режиме реального времени.
 
-## Recommended IDE Setup
+Проект реализован в рамках тестового задания на позицию **Front-End Developer** с использованием **Feature-Sliced Design**, **TypeScript**, **Pinia**, **Naive UI**, **SCSS (BEM)**.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+---
 
-## Customize configuration
+## 🚀 Демо
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+▶ [Открыть приложение](https://currency-converter-pied-zeta.vercel.app)
 
-## Project Setup
+---
 
-```sh
+## 📦 Стек технологий
+
+- ✅ **Vue 3 + Vite** — быстрая разработка и современный фреймворк
+- ✅ **TypeScript** — строгая типизация
+- ✅ **Pinia** — управление состоянием
+- ✅ **Vue Router** — маршрутизация
+- ✅ **Naive UI** — UI-компоненты
+- ✅ **Yup** — валидация форм
+- ✅ **SCSS + BEM** — стилизация
+- ✅ **Feature-Sliced Design** — модульная архитектура
+
+---
+
+## ⚙️ Установка и запуск
+
+```bash
+# Установка зависимостей
 npm install
-```
 
-### Compile and Hot-Reload for Development
-
-```sh
+# Запуск в режиме разработки
 npm run dev
-```
 
-### Compile and Minify for Production
-
-```sh
+# Сборка проекта
 npm run build
-```
+
+# Просмотр production-сборки локально
+npm run preview
