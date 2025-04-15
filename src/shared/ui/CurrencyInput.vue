@@ -10,6 +10,25 @@ const emit = defineEmits<{
   (e: 'update:modelValue', value: number): void
   (e: 'input'): void
 }>()
+
+const handleKeyDown = (event: KeyboardEvent) => {
+  const allowedKeys = [
+    'Backspace',
+    'Tab',
+    'Enter',
+    'Escape',
+    'ArrowLeft',
+    'ArrowRight',
+    'Delete',
+  ]
+
+  const isNumber = /^[0-9]$/.test(event.key)
+  const isDot = event.key === '.'
+
+  if (!isNumber && !isDot && !allowedKeys.includes(event.key)) {
+    event.preventDefault()
+  }
+}
 </script>
 
 <template>
@@ -20,6 +39,7 @@ const emit = defineEmits<{
       @input="emit('input')"
       :min="0"
       :placeholder="placeholder"
+      @keydown="handleKeyDown"
   />
 </template>
 

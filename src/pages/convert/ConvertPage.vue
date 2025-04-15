@@ -36,8 +36,9 @@ const updateAmount = async (sourceIndex: 0 | 1) => {
   const targetIndex = sourceIndex === 0 ? 1 : 0
   const valid = await validate(sourceIndex)
   if (!valid) return
+
   const rate = store.getRate(form[sourceIndex].currency, form[targetIndex].currency)
-  form[targetIndex].amount = parseFloat((form[sourceIndex].amount * rate).toFixed(2))
+  form[targetIndex].amount = Number((form[sourceIndex].amount * rate).toFixed(2))
 }
 
 watch(() => form[0].currency, () => updateAmount(0))
